@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nora Vance — Writer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1c1a17;
+    --ink-2:#242019;
+    --paper:#f2eee4;
+    --paper-dim:#a79e8e;
+    --paper-faint:#6f6858;
+    --rule:#3a352c;
+
+    --b2b:#6e8f6b;      /* sage — B2B */
+    --b2c:#c15b6b;      /* rose — B2C */
+    --news:#4c7a93;     /* steel blue — newsletter */
+    --brand:#c99a3e;    /* gold — freelance / brand voice */
+
+    --serif:'Fraunces', serif;
+    --sans:'Work Sans', sans-serif;
+    --mono:'JetBrains Mono', monospace;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:var(--sans);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{color:inherit;}
+
+  :focus-visible{
+    outline:2px solid var(--brand);
+    outline-offset:3px;
+  }
+
+  .wrap{
+    max-width:1080px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--paper-dim);
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(28,26,23,.88);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--rule);
+  }
+  nav.wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    height:76px;
+  }
+  .mark{
+    font-family:var(--serif);
+    font-weight:600;
+    font-size:19px;
+    letter-spacing:.01em;
+  }
+  .mark span{
+    display:block;
+    font-family:var(--mono);
+    font-size:10px;
+    font-weight:400;
+    letter-spacing:.16em;
+    color:var(--paper-dim);
+    text-transform:uppercase;
+    margin-top:1px;
+  }
+  .navlinks{
+    display:flex;
+    gap:32px;
+    font-size:14px;
+  }
+  .navlinks a{
+    text-decoration:none;
+    color:var(--paper-dim);
+    transition:color .2s ease;
+  }
+  .navlinks a:hover{color:var(--paper);}
+  .navlinks{list-style:none;}
+
+  @media (max-width:640px){
+    .navlinks{display:none;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:96px 0 88px;
+    border-bottom:1px solid var(--rule);
+  }
+  .hero h1{
+    font-family:var(--serif);
+    font-weight:600;
+    font-size:clamp(48px,9vw,104px);
+    line-height:.98;
+    letter-spacing:-.01em;
+    margin:20px 0 22px;
+  }
+  .cycle-line{
+    font-family:var(--serif);
+    font-style:italic;
+    font-weight:500;
+    font-size:clamp(20px,3vw,28px);
+    color:var(--paper-dim);
+    min-height:1.5em;
+    display:flex;
+    align-items:center;
+  }
+  .cycle-line .prefix{
+    font-style:normal;
+    color:var(--paper);
+    margin-right:10px;
+    white-space:nowrap;
+  }
+  .cycle-text::after{
+    content:'|';
+    display:inline-block;
+    margin-left:2px;
+    color:var(--brand);
+    animation:blink 1s step-end infinite;
+  }
+  @keyframes blink{50%{opacity:0;}}
+
+  .hero-sub{
+    max-width:520px;
+    margin-top:28px;
+    color:var(--paper-dim);
+    font-size:16px;
+  }
+
+  .cta-row{
+    display:flex;
+    gap:14px;
+    margin-top:36px;
+    flex-wrap:wrap;
+  }
+  .btn{
+    font-family:var(--mono);
+    font-size:13px;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:13px 22px;
+    border-radius:2px;
+    border:1px solid var(--rule);
+    transition:all .2s ease;
+    display:inline-block;
+  }
+  .btn.primary{
+    background:var(--paper);
+    color:var(--ink);
+    border-color:var(--paper);
+  }
+  .btn.primary:hover{background:var(--brand);border-color:var(--brand);}
+  .btn.ghost{color:var(--paper);}
+  .btn.ghost:hover{border-color:var(--paper);}
+
+  /* ---------- SECTION HEADERS ---------- */
+  section{padding:88px 0;border-bottom:1px solid var(--rule);}
+  .sec-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:24px;
+    margin-bottom:48px;
+    flex-wrap:wrap;
+  }
+  .sec-head h2{
+    font-family:var(--serif);
+    font-weight:600;
+    font-size:clamp(28px,4vw,40px);
+    letter-spacing:-.01em;
+  }
+  .sec-head p{
+    color:var(--paper-dim);
+    max-width:360px;
+    font-size:14.5px;
+  }
+
+  /* ---------- VOICES (signature block) ---------- */
+  .base-msg{
+    font-family:var(--mono);
+    font-size:13px;
+    color:var(--paper-faint);
+    margin-bottom:28px;
+    padding-bottom:24px;
+    border-bottom:1px dashed var(--rule);
+  }
+  .base-msg strong{color:var(--paper-dim);font-weight:500;}
+
+  .voice-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:1px;
+    background:var(--rule);
+    border:1px solid var(--rule);
+  }
+  .voice-card{
+    background:var(--ink);
+    padding:28px;
+    position:relative;
+  }
+  .voice-tag{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    margin-bottom:16px;
+  }
+  .dot{width:8px;height:8px;border-radius:50%;flex:none;}
+  .voice-card p{
+    font-family:var(--serif);
+    font-size:19px;
+    line-height:1.45;
+  }
+  .voice-card:nth-child(1) .dot{background:var(--b2b);}
+  .voice-card:nth-child(2) .dot{background:var(--b2c);}
+  .voice-card:nth-child(3) .dot{background:var(--news);}
+  .voice-card:nth-child(4) .dot{background:var(--brand);}
+  .voice-card:nth-child(1) .voice-tag{color:var(--b2b);}
+  .voice-card:nth-child(2) .voice-tag{color:var(--b2c);}
+  .voice-card:nth-child(3) .voice-tag{color:var(--news);}
+  .voice-card:nth-child(4) .voice-tag{color:var(--brand);}
+
+  @media (max-width:640px){
+    .voice-grid{grid-template-columns:1fr;}
+  }
+
+  /* ---------- WORK GRID ---------- */
+  .work-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
+  }
+  .work-card{
+    border:1px solid var(--rule);
+    padding:26px;
+    transition:transform .2s ease, border-color .2s ease;
+  }
+  .work-card:hover{
+    transform:translateY(-3px);
+    border-color:var(--paper-faint);
+  }
+  .work-tag{
+    font-family:var(--mono);
+    font-size:10.5px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    padding:4px 9px;
+    border-radius:2px;
+    display:inline-block;
+    margin-bottom:16px;
+  }
+  .work-card h3{
+    font-family:var(--serif);
+    font-weight:600;
+    font-size:21px;
+    margin-bottom:10px;
+    line-height:1.25;
+  }
+  .work-card p{
+    color:var(--paper-dim);
+    font-size:14.5px;
+  }
+  .work-meta{
+    margin-top:16px;
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--paper-faint);
+  }
+  .tag-b2b{background:rgba(110,143,107,.16);color:var(--b2b);}
+  .tag-b2c{background:rgba(193,91,107,.16);color:var(--b2c);}
+  .tag-news{background:rgba(76,122,147,.16);color:var(--news);}
+  .tag-brand{background:rgba(201,154,62,.16);color:var(--brand);}
+
+  @media (max-width:640px){
+    .work-grid{grid-template-columns:1fr;}
+  }
+
+  /* ---------- CLIENTS ---------- */
+  .clients-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:36px 48px;
+    align-items:center;
+  }
+  .client-mark{
+    font-family:var(--serif);
+    font-size:20px;
+    font-weight:600;
+    color:var(--paper-faint);
+    letter-spacing:.01em;
+  }
+
+  /* ---------- NEWSLETTER ---------- */
+  .news-block{
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:48px;
+    align-items:center;
+  }
+  .news-block h2{
+    font-family:var(--serif);
+    font-weight:600;
+    font-size:clamp(30px,4vw,42px);
+    margin-bottom:16px;
+    line-height:1.1;
+  }
+  .news-block p{color:var(--paper-dim);font-size:15px;max-width:420px;}
+  .signup{
+    border:1px solid var(--rule);
+    padding:28px;
+  }
+  .signup .eyebrow{margin-bottom:16px;}
+  .field-row{
+    display:flex;
+    gap:10px;
+    margin-top:18px;
+  }
+  input[type=email]{
+    flex:1;
+    background:transparent;
+    border:1px solid var(--rule);
+    color:var(--paper);
+    padding:12px 14px;
+    font-family:var(--sans);
+    font-size:14px;
+    border-radius:2px;
+  }
+  input[type=email]::placeholder{color:var(--paper-faint);}
+  input[type=email]:focus{outline:none;border-color:var(--news);}
+
+  @media (max-width:720px){
+    .news-block{grid-template-columns:1fr;}
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{
+    display:grid;
+    grid-template-columns:.8fr 1.2fr;
+    gap:56px;
+  }
+  .about-grid h2{
+    font-family:var(--serif);
+    font-weight:600;
+    font-size:clamp(28px,4vw,38px);
+  }
+  .about-grid .body p{
+    font-size:16px;
+    color:var(--paper-dim);
+    margin-bottom:16px;
+    max-width:560px;
+  }
+  .stat-line{
+    display:flex;
+    gap:32px;
+    margin-top:28px;
+    flex-wrap:wrap;
+  }
+  .stat{font-family:var(--mono);font-size:13px;color:var(--paper-faint);}
+  .stat b{
+    display:block;
+    font-family:var(--serif);
+    font-size:26px;
+    color:var(--paper);
+    font-weight:600;
+  }
+
+  @media (max-width:720px){
+    .about-grid{grid-template-columns:1fr;}
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{padding:56px 0 64px;}
+  .foot-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    flex-wrap:wrap;
+    gap:24px;
+  }
+  .foot-cta h2{
+    font-family:var(--serif);
+    font-weight:600;
+    font-size:clamp(30px,5vw,48px);
+    margin-bottom:14px;
+  }
+  .foot-links{
+    display:flex;
+    gap:22px;
+    font-family:var(--mono);
+    font-size:13px;
+    color:var(--paper-dim);
+    list-style:none;
+  }
+  .foot-links a{text-decoration:none;}
+  .foot-links a:hover{color:var(--paper);}
+  .foot-bottom{
+    margin-top:48px;
+    padding-top:20px;
+    border-top:1px solid var(--rule);
+    font-family:var(--mono);
+    font-size:11.5px;
+    color:var(--paper-faint);
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .cycle-text::after{animation:none;}
+    .work-card{transition:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <div class="mark">Nora Vance<span>Writer</span></div>
+    <ul class="navlinks">
+      <li><a href="#voices">Voices</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#clients">Clients</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero wrap" style="border-top:none;">
+  <p class="eyebrow">Copywriter &amp; content writer — B2B · B2C · Newsletters · Brand voice</p>
+  <h1>Nora Vance</h1>
+  <p class="cycle-line"><span class="prefix">writes</span><span class="cycle-text" id="cycleText">onboarding emails that don't sound like a robot.</span></p>
+  <p class="hero-sub">Eleven years writing for people who have to hit "send" on deadline — enterprise marketing teams, consumer brands, and the newsletters people actually open. One writer, whatever register the room needs.</p>
+  <div class="cta-row">
+    <a href="#work" class="btn primary">View the work</a>
+    <a href="#contact" class="btn ghost">Get in touch</a>
+  </div>
+</section>
+
+<section id="voices">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>One message,<br>four registers</h2>
+      <p>The job is rarely writing something new — it's saying the same true thing in the voice the reader trusts. Here's what that looks like in practice.</p>
+    </div>
+
+    <p class="base-msg"><strong>The idea behind all four:</strong> "This update saves your team time."</p>
+
+    <div class="voice-grid">
+      <div class="voice-card">
+        <span class="voice-tag"><span class="dot"></span>B2B / enterprise</span>
+        <p>"The release cuts manual review time by 40% — freeing your team for higher-value work."</p>
+      </div>
+      <div class="voice-card">
+        <span class="voice-tag"><span class="dot"></span>B2C / consumer</span>
+        <p>"You just got three hours back this week. You're welcome."</p>
+      </div>
+      <div class="voice-card">
+        <span class="voice-tag"><span class="dot"></span>Newsletter</span>
+        <p>"Quick one — we shaved 40% off review time. Here's how, in under 200 words."</p>
+      </div>
+      <div class="voice-card">
+        <span class="voice-tag"><span class="dot"></span>Brand / freelance</span>
+        <p>"Less busywork. More of the work that actually matters. That's the update."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Selected work</h2>
+      <p>A mix of client campaigns, case studies, and ongoing retainer work across formats.</p>
+    </div>
+
+    <div class="work-grid">
+      <div class="work-card">
+        <span class="work-tag tag-b2b">B2B · Case study</span>
+        <h3>Cutting onboarding time by 40%</h3>
+        <p>A three-part email sequence and landing page rewrite for a workflow SaaS, aimed at ops leads mid-evaluation.</p>
+        <div class="work-meta">Northwind · 2025</div>
+      </div>
+
+      <div class="work-card">
+        <span class="work-tag tag-b2c">B2C · Campaign</span>
+        <h3>The email that beat Black Friday</h3>
+        <p>A single promotional email that outperformed the brand's entire Black Friday send, on an ordinary Tuesday.</p>
+        <div class="work-meta">Bloom & Co · 2024</div>
+      </div>
+
+      <div class="work-card">
+        <span class="work-tag tag-news">Newsletter</span>
+        <h3>The Weekly Read</h3>
+        <p>A self-published newsletter on writing and attention, grown to 12,000 subscribers on word of mouth alone.</p>
+        <div class="work-meta">Independent · ongoing</div>
+      </div>
+
+      <div class="work-card">
+        <span class="work-tag tag-brand">Brand voice</span>
+        <h3>Rebrand voice &amp; tone guide</h3>
+        <p>A 40-page voice guide and rewrite of core product copy for a fintech startup repositioning post-Series A.</p>
+        <div class="work-meta">Fieldnote · 2025</div>
+      </div>
+
+      <div class="work-card">
+        <span class="work-tag tag-b2b">B2B · Sequence</span>
+        <h3>SaaS launch, zero to close</h3>
+        <p>The full email sequence for a product launch: announcement, objection-handling, and last-call urgency.</p>
+        <div class="work-meta">Rivet Analytics · 2024</div>
+      </div>
+
+      <div class="work-card">
+        <span class="work-tag tag-b2c">B2C · App copy</span>
+        <h3>App store description overhaul</h3>
+        <p>Rewrote listing copy and push notification library, lifting install-to-open conversion measurably.</p>
+        <div class="work-meta">Loopform · 2023</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="clients">
+  <div class="wrap">
+    <div class="sec-head" style="margin-bottom:32px;">
+      <h2>Who's hired the voice</h2>
+    </div>
+    <div class="clients-row">
+      <span class="client-mark">Northwind</span>
+      <span class="client-mark">Bloom &amp; Co</span>
+      <span class="client-mark">Fieldnote</span>
+      <span class="client-mark">Rivet Analytics</span>
+      <span class="client-mark">Loopform</span>
+      <span class="client-mark">Harbor & Vine</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap news-block">
+    <div>
+      <p class="eyebrow" style="margin-bottom:14px;">Newsletter</p>
+      <h2>The Weekly Read</h2>
+      <p>One idea on writing that works, every Thursday. No listicles, no fluff — just the thing I noticed this week and why it mattered.</p>
+    </div>
+    <div class="signup">
+      <p class="eyebrow">Join 12,000 readers</p>
+      <p style="font-size:14px;color:var(--paper-dim);margin-top:6px;">Free. Unsubscribe whenever.</p>
+      <div class="field-row">
+        <input type="email" placeholder="you@email.com">
+        <button class="btn primary" type="button" style="border:none;cursor:pointer;">Subscribe</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap about-grid">
+    <div>
+      <p class="eyebrow" style="margin-bottom:14px;">About</p>
+      <h2>Nora Vance</h2>
+    </div>
+    <div class="body">
+      <p>I've spent eleven years writing for people who have a deadline and no patience for filler — enterprise marketing teams shipping a launch, consumer brands trying to sound like a person, and my own newsletter readers who signed up expecting something worth their Thursday.</p>
+      <p>Most of my work is under an NDA I take seriously, which is why the samples above are representative rather than exhaustive. If you want the real portfolio, ask — I'll send it over.</p>
+      <div class="stat-line">
+        <div class="stat"><b>11</b>years writing professionally</div>
+        <div class="stat"><b>60+</b>clients across B2B &amp; B2C</div>
+        <div class="stat"><b>12k</b>newsletter subscribers</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-row" id="contact">
+      <div class="foot-cta">
+        <h2>Let's write<br>something.</h2>
+        <a href="mailto:hello@noravance.com" class="btn primary">hello@noravance.com</a>
+      </div>
+      <ul class="foot-links">
+        <li><a href="#">LinkedIn</a></li>
+        <li><a href="#">The Weekly Read</a></li>
+        <li><a href="#">Twitter / X</a></li>
+      </ul>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Nora Vance</span>
+      <span>Based in Los Angeles, writing everywhere</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const lines = [
+    "onboarding emails that don't sound like a robot.",
+    "consumer emails people actually open.",
+    "newsletters worth the click.",
+    "briefs turned around on deadline, every time."
+  ];
+  const el = document.getElementById('cycleText');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!reduceMotion && el) {
+    let lineIndex = 0;
+    let charIndex = lines[0].length;
+    let deleting = false;
+
+    function tick(){
+      const current = lines[lineIndex];
+      if (!deleting){
+        charIndex++;
+        if (charIndex > current.length){
+          deleting = true;
+          setTimeout(tick, 1800);
+          return;
+        }
+      } else {
+        charIndex--;
+        if (charIndex < 0){
+          deleting = false;
+          lineIndex = (lineIndex + 1) % lines.length;
+          charIndex = 0;
+        }
+      }
+      el.textContent = current.slice(0, charIndex);
+      setTimeout(tick, deleting ? 22 : 38);
+    }
+    el.textContent = lines[0];
+    setTimeout(tick, 2200);
+  }
+</script>
+
+</body>
+</html>
